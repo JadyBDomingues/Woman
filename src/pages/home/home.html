@@ -1,0 +1,25 @@
+<ion-header>  <!-- componente raiz, pode conter outros comp -->
+  <ion-navbar>  <!-- barra de navegação na aplicação (back button) -->
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>  <!-- definiçao do titulo da pagina -->
+      Woman Beauty
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>  <!-- define o conteudo do corpo em forma de um atalho do ionic -->
+
+  <!-- noob -->
+
+  <ion-list>     <!-- criando uma lista/agrupar todos os meus dados da lista com componente ionic  -->   
+
+    <ion-item *ngFor="let servico of servicos" (click)="selecionaServico(servico)">    <!-- crio minha ação do click -->
+      <h2>{{servico.nome}}</h2>
+      <p>R${{servico.preco}}</p>
+    </ion-item>   <!-- criando um item na minha lista com componente ionic -->
+
+  </ion-list>
+
+</ion-content>

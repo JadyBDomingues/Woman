@@ -1,0 +1,59 @@
+<!--
+  Generated template for the EscolhaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Escolha</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+  <ion-content padding>
+
+   <!-- <ion-slides pager="true">     INCLUIR AS FOTOS API E DEPOIS AQUI
+      <ion-slide *ngFor="let foto of carro.fotos">
+        <img src="{{foto}}" />
+      </ion-slide>
+    </ion-slides> -->
+      
+<ion-item-group>
+    <ion-item-divider color="light">
+      <ion-icon name="options"></ion-icon>
+      SERVICO
+    </ion-item-divider>
+    <ion-item>{{ servico.nome }}</ion-item>
+    <ion-item>R$ {{ servico.preco }}</ion-item>
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider color="light">
+    <ion-icon name="options"></ion-icon>  <!-- propriedades de icone ios e android ios="ios-options" md="md-options --> 
+    MAIS
+  </ion-item-divider>
+  <ion-item *ngFor= "let mais of mais">  
+    <ion-label>
+      <h2>{{ mais.nome }}</h2>
+      <h4>R$ {{ mais.preco }} </h4>
+    </ion-label>
+    <ion-toggle #toggle color="secondary" 
+      (ionChange) ="atualizaTotal(toggle.checked, mais)"></ion-toggle>   <!-- componente para executar sempre que o valor do ionTagle for mudado ele vai atualizar --> 
+  </ion-item>
+</ion-item-group>
+
+<ion-item-divider color="light">
+  <span item-right>TOTAL: R$ {{ precoTotal}} </span>
+</ion-item-divider>
+
+<ion-fab top right edge> 
+  <button ion-fab mini (click)="avancaCadastro()">
+      <ion-icon name="arrow-dropright"> <!-- criando meu boton de avançar como uma seta a direita em cima --> 
+      </ion-icon>
+  </button>
+</ion-fab> 
+
+  </ion-content>

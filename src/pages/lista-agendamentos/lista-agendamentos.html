@@ -1,0 +1,25 @@
+<!--
+  Tela de Lista Agendamentos
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agendamentos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item [class.falha]="!agendamento.enviado" *ngFor="let agendamento of agendamentos">   <!-- caso o agendamento nao seja enviado fica vermelho como esta no scss -->
+    {{agendamento.nomeCliente}} - {{agendamento.modeloServico}}
+
+    <button ion-button item-end icon-only clear
+        *ngIf="!agendamento.enviado"
+        (click)="reenvia(agendamento)">
+      <ion-icon name="refresh"></ion-icon>
+    </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
